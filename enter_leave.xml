@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs 
+		title="image switch mouse enter leave"
+		height="174" width="200"
+		author="Roger Chen"
+		author_email="chenku@esuhsd.org"
+		description ="this gadget is for an experiement, dont use it"	/>
+
+	<UserPref name="original" display_name="Original Image" default_value="http://placehold.it/250x174" required="true" />
+	<UserPref name="enter" display_name="Mouse Enter Image" default_value="http://placehold.it/250x174" required="true" />
+	<UserPref name="leave" display_name="Mouse Leave Image" default_value="http://placehold.it/250x174" required="true" />
+	<UserPref name="alt_name" display_name="Image Name" default_value="image" required="true" />
+	
+	<Content type="html">
+		<![CDATA[
+		<div id="mouse_enter_leave_gadget"> </div>
+			<script type="type/javascript">
+				//
+				//global variables for all functions
+				//
+				var prefs = new gadgets.Prefs();
+				
+				//
+				// functions, which are callbacks, main entries, 
+				//
+				function mainEntry() 
+				{
+				var html="";  //variable that will assign to the gadget's content
+				var element= document.getElementById('mouse_enter_leave_gadget');
+				
+				element.style.height = 174;
+				element.style.width = 200;
+
+				html+='<img alt="' + prefs.alt_name + '"';
+				html+=' src="' +     prefs.original + '"';
+				html+=' onmouseover="mouseover(this)" onmouseout="mouseout(this)" >';
+				element.innerHTML=html; 
+
+				}
+
+				function mouseover(the_img)
+				{
+					var url=prefs.enter;
+					the_img.src = url;
+				}
+				function mouseleave(the_img)
+				{
+					var url=pref.leave;
+					the_img.src = url;
+				}
+				//
+				//the gadget's entry point
+				// Usually, this is the only line of code in script-section
+				//
+				gadgets.util.registerOnLoadHandler(mainEntry);
+			</script>
+			/* this section should be somewhere belongs to the innerHTML member
+			<img alt="image" src="http://placehold.it/250x174" 
+				onmouseover="mouseover" 
+				onmouseout="mouseleave" >
+			*/
+		]]>
+	</Content>
+</Modue>
