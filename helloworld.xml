@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+  <Module>
+    <ModulePrefs title="Hello Example" />
+    <UserPref name="Name" display_name="Your Name" default_value="World" />
+    <Content type="html">
+     <![CDATA[
+       <h3> Hello World. </h3>
+      
+      !
+     ]]>
+    </Content>
+  </Module>
